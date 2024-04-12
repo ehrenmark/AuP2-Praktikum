@@ -1,0 +1,12 @@
+(a) Anteile im gegebenen Rumpf:
+
+- Herstellung der Exemplare im gewünschten Zustand: Zeilen 03 und 04
+- Vorbedingung: Zeile 06
+- Erhebung von Sollwerten (Erwartungswerten): Zeile 07 und 08
+- Aufruf der zu testenden Methode: Zeile 09
+- Nachbedingung: Zeilen 10 und 11
+
+(b) Die Testmethode testet die Funktionalität der Methoden `erteiltAuftrag`, `hatAktuellenAuftrag`, `gibAuftragssumme` und `nimmtAuftragAb` der Klasse `Auftraggeber`.
+
+(c) Die Testmethode könnte den Bezeichner `testAuftragAbnahme` tragen, da sie die Abnahme eines Auftrags durch den Auftraggeber testet.
+
