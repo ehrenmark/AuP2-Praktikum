@@ -1,0 +1,13 @@
+In den Klassen `Mitarbeiter` und `Buero` dienen folgende Methoden der Implementierung der Beziehung zu jeweils anderen Klassen:
+
+In der Klasse `Mitarbeiter`:
+
+- Die Methode `bezieheBuero(Buero buero)` entspricht der set-Methode. Sie dient dazu, ein `Buero`-Objekt zu setzen, mit dem der `Mitarbeiter` in Beziehung steht.
+- Die Methode `gibBuero()` entspricht der get-Methode. Sie gibt das `Buero`-Objekt zurück, mit dem der `Mitarbeiter` in Beziehung steht.
+- Die Methode `ausBueroZiehen()` entspricht der remove-Methode. Sie entfernt die Beziehung zwischen dem `Mitarbeiter` und dem `Buero`.
+
+In der Klasse `Buero`:
+
+- Die Methode `belegeMit(Mitarbeiter mitarbeiter)` entspricht der set-Methode. Sie dient dazu, ein `Mitarbeiter`-Objekt zu setzen, das mit dem `Buero` in Beziehung steht.
+- Die Methode `gibBeleger()` entspricht der get-Methode. Sie gibt das `Mitarbeiter`-Objekt zurück, das mit dem `Buero` in Beziehung steht.
+- Die Methode `zieheBueroFrei()` entspricht der remove-Methode. Sie entfernt die Beziehung zwischen dem `Buero` und dem `Mitarbeiter`.
