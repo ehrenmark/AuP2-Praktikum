@@ -40,22 +40,37 @@ public class Mitarbeiter
     public void bezieheBuero(Buero buero)
     {
         if (buero != null && buero.gibBeleger() == null)
-        // Es wurde ein Buero uebergeben und 
-        // dieses Buero ist noch nicht belegt
         {
-            this.buero = buero; // this hier absolut notwendig, warum?
+            if (this.buero != null) {
+                this.buero.zieheBueroFrei();
+            }
+            this.buero = buero;
             buero.belegeMit(this);
         }
     }
 
-    public void ausBueroZiehen()
-    {
-        // HIER FEHLT NOCH WAS
+    public void ausBueroZiehen() {
+        if (this.buero != null) {
+            Buero oldBuero = this.buero;
+            this.buero = null;
+            oldBuero.zieheBueroFrei();
+        }
     }
 
 
-    public void tauscheBueroMit(Mitarbeiter kollege)
-    {
-        // HIER FEHLT NOCH WAS
+    public void tauscheBueroMit(Mitarbeiter mitarbeiter) {
+        if (mitarbeiter != null && mitarbeiter.gibBuero() != null && this.buero != null) {
+            Buero tempBuero = this.buero;
+            this.buero = mitarbeiter.gibBuero();
+            mitarbeiter.buero = tempBuero;
+        }
+    }
+
+    public void zieheBueroFrei() {
+        if (this.buero != null) {
+            Buero oldBuero = this.buero;
+            this.buero = null;
+            oldBuero.zieheBueroFrei();
+        }
     }
 }

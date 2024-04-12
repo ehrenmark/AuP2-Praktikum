@@ -49,14 +49,20 @@ public class Buero
     //   moeglich?
     // - Was ist zu tun, falls der Mitarbeiter bereits 
     //   ein (anderes) Buero bezogen hat?
-    public void belegeMit(Mitarbeiter mitarbeiter)
-    {
-       // Hier fehlt noch was, siehe Kommentar oben 
+    public void belegeMit(Mitarbeiter mitarbeiter) {
+        if (mitarbeiter != null && this.beleger == null) {
+            this.beleger = mitarbeiter;
+            if (mitarbeiter.gibBuero() != this) {
+                mitarbeiter.ausBueroZiehen();
+                mitarbeiter.bezieheBuero(this);
+            }
+        }
     }
+
 
     public void zieheBueroFrei()
     {
-        // HIER FEHLT NOCH WAS
+        this.beleger = null;
     }
 
 }

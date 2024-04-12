@@ -94,49 +94,46 @@ public class AssoziationenTest extends TestCase
         assertEquals(m1, b1.gibBeleger());
         assertEquals(b1, m1.gibBuero());         
     }
-    
-    public void testAusBueroZiehen()
-    {   
-        fail("Hier ist noch was zu tun");
-        // Vorbedingung und Exemplare in einen geeigneten Zustand versetzen:
-        // Es muss zuaechst ein Mitarbeiter in ein Buero eingezogen sein,
-        // bevor man den erfolgreichen Auszug aus einem Buero testen kann
-        
 
-        // Aufruf der zu testenden Methode
-        
+    public void testAusBueroZiehen() {
+        // Arrange
+        m1.bezieheBuero(b1);
 
-        // Nachbedingung - was muss nach dem Auszug für das Buero gelten und was für den Mitarbeiter
-        
-        // Test des Ausziehens aus einem Büro fuer einen Mitarbeiter, der noch gar kein Buero hat
-        
-        
-        // Nachbedingung
-        
-        
+        // Act
+        m1.ausBueroZiehen();
+
+        // Assert
+        assertNull(m1.gibBuero());
+        assertNull(b1.gibBeleger());
     }
-    
-    public void testZieheBueroFrei()
-    // HIER DEN TEST FORMULIEREN
-    { 
-        fail("Hier ist noch was zu tun");
-        
-    }
-    
-    public void testTauscheBueroMit()
-    // HIER DEN TEST FORMULIEREN
-    { 
-        fail("Hier ist noch was zu tun");
-        // Exemplare in geeigneten Zustand versetzen
-        // m1 soll b1 beziehen und m2 soll in b2 einziehen
-        
 
-        // Aufruf der zu testenden Methode
+    public void testZieheBueroFrei() {
+        // Arrange
+        m1.bezieheBuero(b1);
+
+        // Act
+        m1.zieheBueroFrei();
+
+        // Assert
+        assertNull(m1.gibBuero());
+        assertNull(b1.gibBeleger());
+    }
+
+    public void testTauscheBueroMit() {
+        // Arrange
+        Mitarbeiter m1 = new Mitarbeiter("Mitarbeiter1", "123456");
+        Mitarbeiter m2 = new Mitarbeiter("Mitarbeiter2", "789012");
+        Buero b1 = new Buero(1, 10);
+        Buero b2 = new Buero(2, 20);
+        m1.bezieheBuero(b1);
+        m2.bezieheBuero(b2);
+
+        // Act
         m1.tauscheBueroMit(m2);
 
-        // Nachbedingung - was muss nach dem Buerotausch für die beteiligten Mitarbeiter und Bueros gelten
-        assertEquals(m2, b1.gibBeleger());
-        // HIER FEHLT NOCH WAS
+        // Assert
+        assertEquals(b2, m1.gibBuero());
+        assertEquals(b1, m2.gibBuero());
     }
     
     protected void tearDown() throws Exception
